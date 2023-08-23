@@ -92,39 +92,45 @@ public class FlightSearch
             System.out.print("Enter your choice: ");
             int choice = scanner.nextInt();
 
-            if (choice == 1) {
+            if (choice == 1)
+            {
                 System.out.print("Enter the city: ");
                 String city = scanner.next();
                 ArrayList<Flight> result = flightTable.searchByCity(city);
                 printSearchResults(result);
-            } else if (choice == 2) {
+            }
+            else if (choice == 2)
+            {
                 System.out.print("Enter the source city: ");
                 String source = scanner.next();
                 ArrayList<Flight> result = flightTable.searchBySource(source);
                 printSearchResults(result);
-            } else if (choice == 3) {
+            }
+            else if (choice == 3)
+            {
                 System.out.print("Enter the source city: ");
                 String source = scanner.next();
                 System.out.print("Enter the destination city: ");
                 String destination = scanner.next();
                 ArrayList<Flight> result = flightTable.searchBetweenCities(source, destination);
                 printSearchResults(result);
-            } else if (choice == 4) {
-                break;
-            } else {
-                System.out.println("Invalid choice. Please enter a valid option.");
             }
+            else if (choice == 4)
+                break;
+            else
+                System.out.println("Invalid choice. Please enter a valid option.");
         }
     }
 
-    public static void printSearchResults(ArrayList<Flight> result) {
+    public static void printSearchResults(ArrayList<Flight> result)
+    {
         if (!result.isEmpty())
         {
             System.out.println("\nSearch Results:");
             for (Flight flight : result)
                 System.out.println("Flight ID: " + flight.flightId + ", From: " + flight.source + ", To: " + flight.destination + ", Price: " + flight.price);
-        } else {
-            System.out.println("No flights found.");
         }
+        else
+            System.out.println("No flights found.");
     }
 }
